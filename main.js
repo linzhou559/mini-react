@@ -37,7 +37,9 @@ function createEl(type, props, ...children) {
     type: type,
     props: {
       ...props,
-      children,
+      children: children.map((child) => {
+        return typeof child === "string" ? createTextEL(child) : child;
+      }),
     },
   };
 }
@@ -62,11 +64,10 @@ function render(el, container) {
 
   container.append(dom);
 }
-const textEL = createTextEL("Hello World");
-const app = createEl("div", { id: "app" }, textEL);
+// const textEL = createTextEL("Hello World");
+const app = createEl("div", { id: "app" }, "hello ", "world");
+console.log(app);
 render(app, document.getElementById("root"));
-
-
 
 // const dom = document.createElement(app.type);
 // dom.id = app.props.id;
