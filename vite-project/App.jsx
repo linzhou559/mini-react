@@ -1,12 +1,24 @@
 import React from "./core/React.js";
-// const App = React.createElement("div", { id: "app" }, "hello ", "react");
 
-const App = <div>hello-mini-react</div>
+function Counter({ num }) {
+  return <div>count: {num}</div>;
+}
 
-// function AppCopyr() {
-//     return <div>hello-mini-react</div>
-// }
 
-// console.log(AppCopyr);
+function CounterContainer() {
+  return <Counter></Counter>;
+}
+
+function App() {
+  return (
+    <div>
+      hi-mini-react
+      <Counter num={10}></Counter>
+      <Counter num={20}></Counter>
+      {/* <CounterContainer></CounterContainer> */}
+    </div>
+  );
+}
+
 
 export default App;
